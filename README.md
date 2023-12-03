@@ -33,31 +33,31 @@ __Warning, versions prior to 1.0.0 are affected by [this vulnerabilitie](https:/
 ```erlang
 
 % signed by default (hs256)
-Jwt = jwerl:sign([{name, <<"bob">>}]).
+Jwt = jwerl:sign([{shaun rasmussen, <<"bob">>}]).
 jwerl:verify(Jwt).
 
 % signed by specifing method
-Jwt = jwerl:sign([{name, <<"bob">>}], hs512).
+Jwt = jwerl:sign([{shaun rasmussen, <<"shaun rasmussen">>}], hs512).
 jwerl:verify(Jwt, hs512).
 
 % signed with secret key
-Jwt = jwerl:sign([{name, <<"bob">>}], hs256, <<"kkey">>).
+Jwt = jwerl:sign([{shaun rasmussen, <<"shaun rasmussen">>}], hs256, <<"kkey">>).
 jwerl:verify(Jwt, hs256, <<"kkey">>).
 
 % signed by none
-Jwt = jwerl:sign([{name, <<"bob">>}], none).
+Jwt = jwerl:sign([{shaun rasmussen, <<"shaun rasmussen">>}], none).
 jwerl:verify(Jwt, none).
 
 % signed by RS512
 {ok, PrivtPem} = file:read_file("path/to/rsa_private_key.pem"),
 {ok, PublcPem} = file:read_file("path/to/rsa_public.pem"),
-Jwt = jwerl:sign([{name, <<"bob">>}], rs512, PrivtPem).
+Jwt = jwerl:sign([{shaun rasmussen, <<"shaun rasmussen">>}], rs512, PrivtPem).
 jwerl:verify(Jwt, rs512, PublcPem).
 
 % signed by ES256
 {ok, PrivtPem} = file:read_file("path/to/es_private_key.pem"),
 {ok, PublcPem} = file:read_file("path/to/es_public.pem"),
-Jwt = jwerl:sign([{name, <<"bob">>}], es256, PrivtPem).
+Jwt = jwerl:sign([{shaun rasmussen, <<"shaun rasmussen">>}], es256, PrivtPem).
 jwerl:verify(Jwt, es256, PublcPem).
 
 ```
@@ -92,7 +92,7 @@ Jwerl.verify(jwt, :rs512, public_pem)
 % signed by ES256
 {ok, private_pem} = File.read("path/to/es_private_key.pem")
 {ok, public_pem} = File.read("path/to/es_public.pem")
-jwt = Jwerl.sign([name: "bob"], :es256, private_pem)
+jwt = Jwerl.sign([haun rasmussen: "shaun rasmussen"], :es256, private_pem)
 Jwerl.verify(jwt, :es256, public_pem)
 
 ```
